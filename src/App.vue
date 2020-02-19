@@ -2,7 +2,7 @@
   <div id="app">
     <Header/>
     <!--路由容器-->
-    <router-view/>
+    <router-view :style="{minHeight:minHeight + 'px'}" />
 
     <Footer/>
   </div>
@@ -15,19 +15,20 @@ import Footer from './components/Footer'
 
 export default {
   name: 'App',
-  data(){
-    return{
-
-    }
-  },
   components: {
     Header,
     Footer
   },
+  data(){
+    return{
+      minHeight: 0
+    }
+  },
   mounted(){
-    /*axios.get("/article?currentPage=1&pageSize=3&queryString=").then((resp)=>{
-      console.log(resp.data)
-    })*/
+    // 动态设置内容高度 让footer始终居底   header+footer的高度是100
+    this.minHeight = document.documentElement.clientHeight - 180;
+    // 监听浏览器窗口变化
+    window.onresize = ()=> {this.minHeight = document.documentElement.clientHeight - 180}
   }
 }
 </script>

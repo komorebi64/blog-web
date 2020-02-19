@@ -3,7 +3,11 @@ module.exports = {
   devServer: {
       proxy: {
           '/article':{
-              target: 'http://956246.cn',
+              target: 'http://localhost:10888',
+              changeOrigin: true
+          },
+          '/comment':{
+              target: 'http://localhost:10888',
               changeOrigin: true
           }
       }

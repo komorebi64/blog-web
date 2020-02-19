@@ -1,5 +1,5 @@
 <template>
-  <el-container style="margin-right: 30px;">
+  <el-container style="margin-right: 30px;" v-loading="page_loading" element-loading-text="拼命加载中">
     <el-main style="padding-right: 0; ">
       <!--文章简介-->
       <el-row class="articleOverview" v-for="(article) in articleList" :key="article.id">
@@ -10,7 +10,7 @@
             {{article.abstractText.substring(0,100)}} .....
             <el-divider></el-divider>
             <div class="bottom clearfix">
-              <time class="time">发表时间：<i class="el-icon-time"></i> {{timeFormatConversion(article.updated)}}</time>
+              <time class="time">发表时间：<i class="el-icon-time"></i> {{utils.timeFormatConversion(article.updated)}}</time>
               <el-button type="text" class="button">
                 <el-link :underline="false" v-on:click="goArticlePage(article.id)">查看<i class="el-icon-view el-icon--right"></i> </el-link>
               </el-button>
@@ -56,6 +56,7 @@ export default {
   name: 'Index',
   data(){
     return{
+      page_loading:true,
       // 分页按钮隐藏
       page_hide:false,
       pagination: {//分页相关属性
@@ -80,6 +81,9 @@ export default {
               })
               .catch(()=>{
                 // 数据加载失败
+                location.href = "error";
+              }).finally(()=>{
+                this.page_loading = false;
               });
       this.paginationHide();
     },
@@ -94,23 +98,8 @@ export default {
         this.page_hide = true;
       }
     },
-    // 时间格式转换
-    timeFormatConversion(temp){
-      let date = new Date(temp);
-      let segmentation = "-";
-      let year = date.getFullYear();
-      let month = date.getMonth() + 1;
-      let strDate = date.getDate();
-      if (month >= 1 && month <= 9) {
-        month = "0" + month;
-      }
-      if (strDate >= 0 && strDate <= 9) {
-        strDate = "0" + strDate;
-      }
-      return year + segmentation + month + segmentation + strDate;
-    },
     goArticlePage(articleId){
-      location.href = "/#/article/" + articleId;
+      location.href = "#/article/" + articleId;
     }
   },
   mounted(){
