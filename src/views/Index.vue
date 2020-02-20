@@ -81,7 +81,7 @@ export default {
               })
               .catch(()=>{
                 // 数据加载失败
-                location.href = "error";
+                this.$router.push("error")
               }).finally(()=>{
                 this.page_loading = false;
               });

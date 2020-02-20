@@ -9,6 +9,14 @@ module.exports = {
           '/comment':{
               target: 'http://localhost:10888',
               changeOrigin: true
+          },
+          '/toQQLogin':{
+              target: 'http://localhost:10888',
+              changeOrigin: true
+          },
+          '/oauth2':{
+              target: 'http://localhost:10888',
+              changeOrigin: true
           }
       }
   }

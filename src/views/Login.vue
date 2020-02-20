@@ -53,8 +53,9 @@ export default {
     }
   },
   methods:{
-    goAuthPage(pageName){
-      this.$router.push(pageName)
+    goAuthPage(pageName) {
+      //this.$router.push(pageName)
+      location.href = pageName;
     }
   }
 }
