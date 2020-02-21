@@ -18,11 +18,17 @@
       <el-divider></el-divider>
       <div style="padding-bottom: 25px;margin-left: 30px;">
         <el-breadcrumb separator="/">
-          <el-breadcrumb-item :to="{ path: '/me.html' }">关于我</el-breadcrumb-item>
-          <el-breadcrumb-item><a href="/me.html">关于博客</a></el-breadcrumb-item>
+          <el-breadcrumb-item>关于我</el-breadcrumb-item>
+          <el-breadcrumb-item>关于博客</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
       <el-timeline>
+        <el-timeline-item timestamp="2020-02-21" placement="top">
+          <el-card>
+            <p>在一个朋友的建议下，我把前端与后端进行了分离<br/><br/>
+              说起来好像很轻松的样子，但是做了之后才知道，有很多东西需要修改</p>
+          </el-card>
+        </el-timeline-item>
         <el-timeline-item timestamp="2020-02-05" placement="top">
           <el-card>
             <p>GitHub的OAuth写好后还想接入Google和QQ，但是我的代码该重构一下下了<br/><br/>
@@ -95,13 +101,6 @@
 
 <script>
 export default {
-  name: 'Me',
-  components: {
-
-  }
+  name: 'Me'
 }
 </script>
-
-<style>
-
-</style>

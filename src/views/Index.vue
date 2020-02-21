@@ -99,7 +99,7 @@ export default {
       }
     },
     goArticlePage(articleId){
-      location.href = "#/article/" + articleId;
+      location.href = "/article/" + articleId;
     }
   },
   mounted(){

@@ -14,10 +14,68 @@
                 <el-menu-item index="2-2">选项2</el-menu-item>
             </el-submenu>
             <el-menu-item index="/me">关于我</el-menu-item>
+
+            <el-menu-item index="/login" style="float: right" v-if="userName === '游客'">
+                去登录
+            </el-menu-item>
+            <el-menu-item @click="logout" style="float: right" v-if="userName !== '游客'">
+                登出
+            </el-menu-item>
+
+            <el-menu-item style="float: right" disabled>您好，{{userName}}</el-menu-item>
+
         </el-menu>
     </el-header>
 </template>
-
+<script>
+import axios from "axios";
+export default {
+    data(){
+        return{
+            userName: '游客'
+        }
+    },
+    methods:{
+        goLogin(){
+            this.$router.push("login")
+        },
+        logout(){
+            this.$confirm('此操作将退出您的登录状态, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning',
+                center: true
+            }).then(() => {
+                axios.get("/logout").then(()=>{
+                    this.$message.success({
+                        message: '登出成功!'
+                    });
+                    location.reload()
+                }).catch(()=>{
+                    this.$message.error({
+                        message: '登出失败，怎么回事!'
+                    });
+                })
+            }).catch(() => {
+                this.$message({
+                    message: '已取消'
+                });
+            });
+        },
+        getUserStatus(){
+            axios.get("/auth/userStatus")
+                .then((resp) => {
+                    if (resp.data.flag){
+                        this.userName = resp.data.data;
+                    }
+                })
+        }
+    },
+    mounted(){
+        this.getUserStatus();
+    }
+}
+</script>
 <style scoped>
     .el-header{
         padding: 0;

@@ -17,6 +17,14 @@ module.exports = {
           '/oauth2':{
               target: 'http://localhost:10888',
               changeOrigin: true
+          },
+          '/auth':{
+              target: 'http://localhost:10888',
+              changeOrigin: true
+          },
+          '/logout':{
+              target: 'http://localhost:10888',
+              changeOrigin: true
           }
       }
   }

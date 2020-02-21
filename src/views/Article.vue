@@ -57,13 +57,24 @@ export default {
     },
     getArticle(){
       axios.get("/article/" + this.id)
-              .then((res)=>{
-                if(res.data.flag){
-                  this.article = res.data.data;
-                }
-                this.article.content = this.formatMake(this.article.content);
-                document.title = this.article.title + "_Komorebi个人小站";
-              })
+        .then((res)=>{
+          if(res.data.flag){
+            this.article = res.data.data;
+          }else {
+            this.$router.push({
+              // 参数（查询信息）
+              name: "error",
+              params: {
+                msg: res.data.message
+              }
+            });
+            return;
+          }
+          this.article.content = this.formatMake(this.article.content);
+          document.title = this.article.title + "_Komorebi个人小站";
+        }).catch(()=>{
+          this.article.content = '# 获取文章失败啦？';
+        })
     },
 
   },

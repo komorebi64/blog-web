@@ -11,7 +11,6 @@
 <script>
 import Header from './components/Header'
 import Footer from './components/Footer'
-//import axios from 'axios'
 
 export default {
   name: 'App',
@@ -34,5 +33,13 @@ export default {
 </script>
 
 <style>
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
 
+  ::-webkit-scrollbar-thumb {
+    background-color: #eee;
+    border-radius: 3px;
+  }
 </style>

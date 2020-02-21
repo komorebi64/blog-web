@@ -31,6 +31,22 @@
     </el-container>
 </template>
 
+<script>
+    export default {
+        props:{
+            msg:{
+                type: String
+            }
+        },
+        mounted(){
+            this.$notify.error({
+                title: '出错啦',
+                message: this.msg
+            });
+        }
+    }
+</script>
+
 <style scoped>
     .windmill {
         position: absolute;
