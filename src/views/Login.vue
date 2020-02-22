@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'Login',
   data(){
@@ -55,7 +56,33 @@ export default {
   methods:{
     goAuthPage(pageName) {
       //this.$router.push(pageName)
-      location.href = pageName;
+      location.href = "http://956246.cn:10888"+pageName;
+    },
+    login(){
+      if (this.from.username === '' || this.from.password === ''){
+        this.$message.warning({
+          message: '请勿留空提交'
+        });
+        return false;
+      }
+      this.loading = true;
+      axios.post("/auth/login",this.from)
+              .then((resp)=>{
+                if (resp.data.flag){
+                  this.$notify.success({
+                    message: '登录成功'
+                  });
+                  location.href =  "http://localhost:8080/";
+                }else {
+                  this.$notify.error({
+                    title: '出错啦 😥',
+                    message: resp.data.message
+                  });
+                }
+              })
+              .finally(()=>{
+                this.loading = false;
+              })
     }
   }
 }

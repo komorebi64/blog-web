@@ -4,10 +4,13 @@ import router from "@/router";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import Utils from './common/utils';
+import axios from "axios";
 
 Vue.use(ElementUI);
 Vue.prototype.utils=Utils;
 Vue.config.productionTip = false;
+axios.defaults.baseURL = 'http://956246.cn:10888';
+axios.defaults.withCredentials = true;
 
 new Vue({
   router,

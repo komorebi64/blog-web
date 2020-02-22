@@ -1,5 +1,5 @@
 <template>
-  <el-main>
+  <el-main v-loading="article_loading">
     <PageHeader :title="article.title"/>
     <Markdown :content="article.content"/>
     <el-card shadow="always" body-style="display: inline-block; width: 95%;">
@@ -31,6 +31,7 @@ export default {
   },
   data(){
     return{
+      article_loading: true,
       article:{
         title:'',
         content:''
@@ -74,6 +75,8 @@ export default {
           document.title = this.article.title + "_Komorebi个人小站";
         }).catch(()=>{
           this.article.content = '# 获取文章失败啦？';
+        }).finally(()=>{
+          this.article_loading = false;
         })
     },
 

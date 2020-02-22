@@ -10,14 +10,16 @@ import Registered from "@/views/Registered";
 Vue.use(Router);
 
 export default new Router({
-    mode:'history',
+    // mode:'history',
     routes:[
         {
             path: '/',
+            name:'index',
             component: Index
         },
         {
             path: '/login',
+            name:'login',
             component: Login
         },
         {

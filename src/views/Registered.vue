@@ -52,6 +52,7 @@ export default {
                   this.$notify.success({
                     message: '完善用户信息成功'
                   });
+                  location.href =  "/login";
                 }else {
                   this.$notify.error({
                     title: '出错啦 😥',

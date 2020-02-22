@@ -99,7 +99,13 @@ export default {
       }
     },
     goArticlePage(articleId){
-      location.href = "/article/" + articleId;
+      this.$router.push({
+        // 参数（查询信息）
+        name: "article",
+        params: {
+          id: articleId
+        }
+      });
     }
   },
   mounted(){

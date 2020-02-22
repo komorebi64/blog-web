@@ -38,7 +38,7 @@
         mounted() {
             this.loadV2Script().then(() => {
                 window.vaptcha({
-                    vid: '5e184ffe4c6b8b41680b9305', // 验证单元id
+                    vid: '5e11b8d14c6b8b41680b9091', // 验证单元id
                     type: 'embed', // 显示类型 嵌入式
                     scene: 0, // 场景值 默认0
                     container: '#vaptchaContainer', // 容器，可为Element 或者 selector

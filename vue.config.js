@@ -1,6 +1,7 @@
 /* 开发使用 代理 */
 module.exports = {
   devServer: {
+      disableHostCheck: true,
       proxy: {
           '/article':{
               target: 'http://localhost:10888',
@@ -18,11 +19,11 @@ module.exports = {
               target: 'http://localhost:10888',
               changeOrigin: true
           },
-          '/auth':{
+          '/logout':{
               target: 'http://localhost:10888',
               changeOrigin: true
           },
-          '/logout':{
+          '/auth':{
               target: 'http://localhost:10888',
               changeOrigin: true
           }
