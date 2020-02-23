@@ -4,11 +4,11 @@
             <div style="float: left">
                 <el-avatar :src="comment.thumbnailUrl"></el-avatar>
             </div>
-            <div style="float: left; padding-left: 25px; width: 600px; margin-top: -15px;">
+            <div style="float: left; padding-left: 25px; transform:translateY(-15px)">
                 <pre>{{comment.name}}</pre>
                 <pre>{{comment.content}}</pre>
             </div>
-            <div style="float: right">
+            <div style="float: right; padding-right: 15px">
                 <i class="el-icon-time"></i> {{utils.timeFormatConversion(comment.created)}}
             </div>
         </div>

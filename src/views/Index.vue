@@ -1,52 +1,55 @@
 <template>
-  <el-container style="margin-right: 30px;" v-loading="page_loading" element-loading-text="拼命加载中">
-    <el-main style="padding-right: 0; ">
-      <!--文章简介-->
-      <el-row class="articleOverview" v-for="(article) in articleList" :key="article.id">
-        <el-card :body-style="{ padding: '0px' }" shadow="hover">
-          <img :src="article.imgUrl" class="image" alt="" @click="goArticlePage(article.id)">
-          <div style="padding: 14px;">
-            <h3 @click="goArticlePage(article.id)">{{article.title}}</h3>
-            {{article.abstractText.substring(0,100)}} .....
-            <el-divider></el-divider>
-            <div class="bottom clearfix">
-              <time class="time">发表时间：<i class="el-icon-time"></i> {{utils.timeFormatConversion(article.updated)}}</time>
-              <el-button type="text" class="button">
-                <el-link :underline="false" v-on:click="goArticlePage(article.id)">查看<i class="el-icon-view el-icon--right"></i> </el-link>
-              </el-button>
+  <el-row :gutter="10">
+    <el-container style="width: 100%;" v-loading="page_loading" element-loading-text="拼命加载中">
+      <el-col :xs="24" :sm="20" :md="20" :lg="20">
+        <!--文章简介-->
+        <el-row class="articleOverview" v-for="(article) in articleList" :key="article.id">
+          <el-card :body-style="{ padding: '0px' }" shadow="hover">
+            <img :src="article.imgUrl" class="image" alt="" @click="goArticlePage(article.id)">
+            <div style="padding: 14px;">
+              <h3 @click="goArticlePage(article.id)">{{article.title}}</h3>
+              {{article.abstractText.substring(0,100)}} .....
+              <el-divider></el-divider>
+              <div class="bottom clearfix">
+                <time class="time">发表时间：<i class="el-icon-time"></i> {{utils.timeFormatConversion(article.updated)}}</time>
+                <el-button type="text" class="button">
+                  <el-link :underline="false" v-on:click="goArticlePage(article.id)">查看<i class="el-icon-view el-icon--right"></i> </el-link>
+                </el-button>
+              </div>
             </div>
-          </div>
-        </el-card>
-      </el-row>
-      <!--分页按钮-->
-      <el-pagination
-              background
-              v-show="page_hide"
-              @current-change="handleCurrentChange"
-              :page-size="pagination.pageSize"
-              :current-page="pagination.currentPage"
-              layout="prev, pager, next"
-              :total="pagination.total">
-      </el-pagination>
-    </el-main>
-    <!--侧边栏-->
-    <el-container style="padding-top: 35px; width: 350px">
-      <el-row style="width: 350px">
-        <i class="el-icon-search"></i> 搜索文章<el-divider></el-divider>
-        <i class="el-icon-receiving"></i> 分类<el-divider></el-divider>
-        <i class="el-icon-price-tag"></i> 标签<el-divider></el-divider>
-        <el-tooltip class="item" effect="dark" content="1 个标签" placement="top">
-          <el-link href="/" :underline="false" target="_blank"><el-tag>标签一</el-tag></el-link>
-        </el-tooltip>
-        <el-tag type="success">标签二</el-tag>
-        <el-tag type="info">标签三</el-tag>
-        <el-tag type="warning">标签四</el-tag>
-        <el-tag type="danger">标签五</el-tag>
-        <el-divider></el-divider>
-        <i class="el-icon-share"></i> 社交按钮<el-divider></el-divider>
-      </el-row>
+          </el-card>
+        </el-row>
+        <!--分页按钮-->
+        <el-pagination
+                background
+                v-show="page_hide"
+                @current-change="handleCurrentChange"
+                :page-size="pagination.pageSize"
+                :current-page="pagination.currentPage"
+                layout="prev, pager, next"
+                :total="pagination.total">
+        </el-pagination>
+
+      </el-col>
+      <!--侧边栏-->
+      <el-col :xs="0" :sm="4" :md="4" :lg="4" style="padding-top: 35px;padding-right: 30px">
+          <i class="el-icon-search"></i> 搜索文章<el-divider></el-divider>
+          <i class="el-icon-receiving"></i> 分类<el-divider></el-divider>
+          <i class="el-icon-price-tag"></i> 标签<el-divider></el-divider>
+          <el-tooltip class="item" effect="dark" content="1 个标签" placement="top">
+            <el-link href="/" :underline="false" target="_blank"><el-tag>标签一</el-tag></el-link>
+          </el-tooltip>
+          <el-tag type="success">标签二</el-tag>
+          <el-tag type="info">标签三</el-tag>
+          <el-tag type="warning">标签四</el-tag>
+          <el-tag type="danger">标签五</el-tag>
+          <el-divider></el-divider>
+          <i class="el-icon-share"></i> 社交按钮<el-divider></el-divider>
+
+
+      </el-col>
     </el-container>
-  </el-container>
+  </el-row>
 </template>
 
 <script>

@@ -1,9 +1,6 @@
 <template>
     <div class="comment-edit-box">
-        <div style="float: left;">
-            <el-avatar src="/image/avatar.jpg"></el-avatar>
-        </div>
-        <div style="float: left; padding-left: 25px; width: 85%;">
+        <div style="float: left; padding-left: 15px; width: 85%;">
             <el-input
                     type="textarea"
                     placeholder="评论"
@@ -17,10 +14,10 @@
                     clearable>
             </el-input>
             <el-collapse-transition>
-                <div v-show="buttonDisplay" style="float: right;margin-top: 20px;">
+                <div v-show="buttonDisplay" style="float: left;margin-top: 20px;">
                     <span>还能输入 {{300 - commentEdit.content.length}} 个字符  </span>
                     <el-button type="primary" @click="commentSubmit" :loading="commentEditSubmit" plain>提交评论</el-button>
-                    <Vaptcha v-on:input="getVaptchaObj"/>
+                    <Vaptcha v-on:input="getVaptchaObj" style="transform:translateX(-25px)"/>
                 </div>
 
             </el-collapse-transition>

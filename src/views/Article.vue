@@ -1,5 +1,5 @@
 <template>
-  <el-main v-loading="article_loading">
+  <el-main v-loading="article_loading" style="width: 100%;">
     <PageHeader :title="article.title"/>
     <Markdown :content="article.content"/>
     <el-card shadow="always" body-style="display: inline-block; width: 95%;">
