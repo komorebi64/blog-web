@@ -84,7 +84,13 @@ export default {
               })
               .catch(()=>{
                 // 数据加载失败
-                this.$router.push("error")
+                  this.$router.push({
+                      // 参数（查询信息）
+                      name: "error",
+                      params: {
+                          msg: '获取数据失败'
+                      }
+                  });
               }).finally(()=>{
                 this.page_loading = false;
               });

@@ -87,6 +87,8 @@ import Vaptcha from "@/components/Vaptcha";
                         if (res.data.flag){
                             this.showMessage(res.data.message, "success");
                             this.commentEdit.content = '';
+
+                            location.reload();
                         }else{
                             this.showMessage(res.data.message, "error");
                         }
