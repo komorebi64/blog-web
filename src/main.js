@@ -7,10 +7,13 @@ import 'element-ui/lib/theme-chalk/display.css';
 import Utils from './common/utils';
 import axios from "axios";
 
+import constant from "@/constants/common"
+
 Vue.use(ElementUI);
 Vue.prototype.utils=Utils;
+Vue.prototype.common = constant;
 Vue.config.productionTip = false;
-axios.defaults.baseURL = 'http://956246.cn:10888';
+axios.defaults.baseURL = constant.API_URL;
 axios.defaults.withCredentials = true;
 
 new Vue({

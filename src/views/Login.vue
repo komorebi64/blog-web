@@ -56,7 +56,7 @@ export default {
   methods:{
     goAuthPage(pageName) {
       //this.$router.push(pageName)
-      location.href = "http://956246.cn:10888"+pageName;
+      location.href = this.common.API_URL + pageName;
     },
     login(){
       if (this.from.username === '' || this.from.password === ''){

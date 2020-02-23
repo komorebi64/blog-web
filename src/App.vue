@@ -39,9 +39,6 @@ export default {
     if (screenWidth < 700){
       this.menuStyle.height = 120 + 'px';
     }
-
-    console.log(this.menuStyle)
-
   }
 }
 </script>
