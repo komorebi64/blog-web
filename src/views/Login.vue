@@ -40,6 +40,7 @@
 
 <script>
 import axios from 'axios';
+import common from "../constants/common";
 export default {
   name: 'Login',
   data(){
@@ -72,7 +73,7 @@ export default {
                   this.$notify.success({
                     message: '登录成功'
                   });
-                  location.href =  "http://localhost:8080/";
+                  location.href =  common.HOME;
                 }else {
                   this.$notify.error({
                     title: '出错啦 😥',
