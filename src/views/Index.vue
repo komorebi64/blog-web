@@ -2,6 +2,16 @@
   <el-row :gutter="10">
     <el-container style="width: 100%;" v-loading="page_loading" element-loading-text="拼命加载中">
       <el-col :xs="24" :sm="20" :md="20" :lg="20">
+        <!--当前搜索提示-->
+        <transition name="el-zoom-in-top">
+          <el-row class="articleOverview" v-show="searchPrompt">
+              <el-breadcrumb separator-class="el-icon-arrow-right">
+                  <el-breadcrumb-item :to="{ path: '/' }">搜索条件</el-breadcrumb-item>
+                  <el-breadcrumb-item>包含 '{{pagination.queryString}}'</el-breadcrumb-item>
+                  <!--<el-breadcrumb-item>标签 '{{}}'</el-breadcrumb-item>-->
+              </el-breadcrumb>
+          </el-row>
+        </transition>
         <!--文章简介-->
         <el-row class="articleOverview" v-for="(article) in articleList" :key="article.id">
           <el-card :body-style="{ padding: '0px' }" shadow="hover">
@@ -19,21 +29,40 @@
             </div>
           </el-card>
         </el-row>
+        <!--没有文章-->
+        <el-row class="articleOverview" v-if="articleList.length <= 0">
+              <el-card :body-style="{ padding: '0px' }" shadow="hover">
+                  <div style="padding: 14px;">
+                      <h3>很抱歉，没有找到与“{{pagination.queryString}}”相关的文章。</h3>
+                      <li>请检查您的输入是否正确</li>
+                      <li>如有任何意见或建议，请及时反馈给我</li>
+                  </div>
+              </el-card>
+          </el-row>
         <!--分页按钮-->
-        <el-pagination
-                background
-                v-show="page_hide"
-                @current-change="handleCurrentChange"
-                :page-size="pagination.pageSize"
-                :current-page="pagination.currentPage"
-                layout="prev, pager, next"
-                :total="pagination.total">
-        </el-pagination>
-
+        <el-row class="articleOverview">
+            <el-pagination
+                    background
+                    v-show="page_show"
+                    @current-change="handleCurrentChange"
+                    :page-size="pagination.pageSize"
+                    :current-page="pagination.currentPage"
+                    layout="prev, pager, next"
+                    :total="pagination.total">
+            </el-pagination>
+        </el-row>
       </el-col>
       <!--侧边栏-->
       <el-col :xs="0" :sm="4" :md="4" :lg="4" style="padding-top: 35px;padding-right: 30px">
-          <i class="el-icon-search"></i> 搜索文章<el-divider></el-divider>
+          <el-input
+                  placeholder="搜索文章"
+                  prefix-icon="el-icon-search"
+                  @change="findPage"
+                  @keyup.enter.native="findPage"
+                  @input="$store.commit('setPaginationQueryString', pagination.queryString)"
+                  v-model="pagination.queryString"
+                  maxlength="20"
+                  clearable></el-input><el-divider></el-divider>
           <i class="el-icon-receiving"></i> 分类<el-divider></el-divider>
           <i class="el-icon-price-tag"></i> 标签<el-divider></el-divider>
           <el-tooltip class="item" effect="dark" content="1 个标签" placement="top">
@@ -45,8 +74,6 @@
           <el-tag type="danger">标签五</el-tag>
           <el-divider></el-divider>
           <i class="el-icon-share"></i> 社交按钮<el-divider></el-divider>
-
-
       </el-col>
     </el-container>
   </el-row>
@@ -60,14 +87,15 @@ export default {
   data(){
     return{
       page_loading:true,
-      // 分页按钮隐藏
-      page_hide:false,
+      // 分页按钮显示
+      page_show:true,
       pagination: {//分页相关属性
         currentPage: 1,
         pageSize:3,
         total:0,
         queryString:'',
       },
+      searchPrompt: false,
       articleList:[]
     }
   },
@@ -81,6 +109,8 @@ export default {
               .then((resp)=>{
                 this.pagination.total = resp.data.data.total;
                 this.articleList = resp.data.data.rows;
+                this.paginationShow();
+                this.searchPromptShow();
               })
               .catch(()=>{
                 // 数据加载失败
@@ -94,18 +124,19 @@ export default {
               }).finally(()=>{
                 this.page_loading = false;
               });
-      this.paginationHide();
     },
     // 切换页码
     handleCurrentChange(currentPage){
       this.pagination.currentPage = currentPage;
       this.findPage();
     },
-    // 分页按钮是否隐藏
-    paginationHide(){
-      if (this.pagination.currentPage <= this.pageSize) {
-        this.page_hide = true;
-      }
+    // 分页按钮是否显示
+    paginationShow(){
+        this.page_show = this.pagination.total > this.pagination.pageSize;
+    },
+    // 分页按钮是否显示
+    searchPromptShow(){
+       this.searchPrompt = this.$store.state.paginationQuery !== ''
     },
     goArticlePage(articleId){
       this.$router.push({
@@ -118,7 +149,11 @@ export default {
     }
   },
   mounted(){
-    this.findPage();
+      if (this.$store.state.paginationQuery !== undefined){
+          this.pagination.queryString = this.$store.state.paginationQuery;
+      }
+
+      this.findPage();
   }
 }
 </script>

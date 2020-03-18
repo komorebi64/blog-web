@@ -79,7 +79,6 @@ export default {
           this.article_loading = false;
         })
     },
-
   },
   mounted(){
     this.getArticle();
