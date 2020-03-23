@@ -30,15 +30,12 @@
 <script>
 import axios from "axios";
 export default {
-    data(){
-        return{
+    data: function () {
+        return {
             userName: '游客'
         }
     },
     methods:{
-        goLogin(){
-            this.$router.push("login")
-        },
         logout(){
             this.$confirm('此操作将退出您的登录状态, 是否继续?', '提示', {
                 confirmButtonText: '确定',

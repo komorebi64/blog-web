@@ -55,7 +55,7 @@
                     return Promise.resolve()
                 } else {
                     return new Promise(resolve => {
-                        var script = document.createElement('script');
+                        let script = document.createElement('script');
                         script.src = 'https://v.vaptcha.com/v3.js';
                         script.async = true;
                         script.onload = script.onreadystatechange = function() {
@@ -73,23 +73,6 @@
 </script>
 
 <style scoped>
-    .load{
-        width: 100%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        z-index: 10000;
-    //display: none;
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-    .loader{
-        text-align: center;
-        position: absolute;
-        top: calc(50% - 70px);
-        left: calc(40%);
-        border-radius: 5px;
-    }
-
     .vaptcha-init-main {
         display: table;
         width: 100%;

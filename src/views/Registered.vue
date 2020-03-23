@@ -49,9 +49,7 @@ export default {
       axios.post("/auth/registered",{password:this.from.password,csrf:this.csrf})
               .then((resp)=>{
                 if (resp.data.flag){
-                  this.$notify.success({
-                    message: '完善用户信息成功'
-                  });
+                  this.$notify.success('完善用户信息成功');
                   this.$router.push("login");
                 }else {
                   this.$notify.error({

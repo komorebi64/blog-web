@@ -70,9 +70,7 @@ export default {
       axios.post("/auth/login",this.from)
               .then((resp)=>{
                 if (resp.data.flag){
-                  this.$notify.success({
-                    message: '登录成功'
-                  });
+                  this.$notify.success('登录成功');
                   location.href =  common.HOME;
                 }else {
                   this.$notify.error({

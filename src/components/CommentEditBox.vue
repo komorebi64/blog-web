@@ -17,7 +17,7 @@
                 <div v-show="buttonDisplay" style="float: left;margin-top: 20px;">
                     <span>还能输入 {{300 - commentEdit.content.length}} 个字符  </span>
                     <el-button type="primary" @click="commentSubmit" :loading="commentEditSubmit" plain>提交评论</el-button>
-                    <Vaptcha v-on:input="getVaptchaObj" style="transform:translateX(-25px)"/>
+                    <Vaptcha v-if="vaptchaLoad" v-on:input="getVaptchaObj" style="transform:translateX(-25px)"/>
                 </div>
 
             </el-collapse-transition>
@@ -50,12 +50,14 @@ import Vaptcha from "@/components/Vaptcha";
                     content:''
                 },
                 commentEditSubmit: false,
-                buttonDisplay: false
+                buttonDisplay: false,
+                vaptchaLoad: false
             }
         },
         methods:{
             commentEditFocus(){
                 this.buttonDisplay = true;
+                this.vaptchaLoad = true;
             },
             commentEditBlur(){
                 if (this.commentEdit.content.length === 0){
