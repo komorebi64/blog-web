@@ -39,10 +39,10 @@
             }
         },
         mounted(){
-            this.$notify.error({
-                title: '出错啦',
-                message: this.msg
-            });
+          this.$notify.error({
+            title: '出错啦',
+            message: this.msg
+          });
         }
     }
 </script>

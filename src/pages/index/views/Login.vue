@@ -40,7 +40,7 @@
 
 <script>
 import axios from 'axios';
-import common from "../constants/common";
+
 export default {
   name: 'Login',
   data(){
@@ -71,7 +71,7 @@ export default {
               .then((resp)=>{
                 if (resp.data.flag){
                   this.$notify.success('登录成功');
-                  location.href =  common.HOME;
+                  this.$router.push("/")
                 }else {
                   this.$notify.error({
                     title: '出错啦 😥',

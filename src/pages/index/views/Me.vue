@@ -4,6 +4,7 @@
       <h1>关于</h1>
       <h2>Komorebi</h2>
       <p>希望成为一名很优秀的程序员</p>
+      <p>用干净的代码，实现每一个功能</p>
       <h2>关于博主</h2>
       <p>
         职业：学生<br/>
@@ -11,7 +12,7 @@
         Tags：善良，不服输<br/>
         简介：喜欢安静,喜欢新鲜的技术,喜欢纯音乐,折腾Ubuntu<br/>
       </p>
-      <p>A programmer who subconsciously views himself as an artist<br />
+      <p>A programmer who subconsciously views himself as an artist<br/>
         will enjoy what he does and will do it better</p>
     </div>
     <div class="block" style="padding-top: 30px;">
@@ -79,7 +80,7 @@
         <el-timeline-item timestamp="2017-03-12" placement="top">
           <el-card>
             <h3>放弃折腾</h3>
-            <p>一年之后，腾讯云学生机服务器到期未续费<br /><br />域名到期未续，域名过期被注销，撒花纪念。</p>
+            <p>一年之后，腾讯云学生机服务器到期未续费<br/><br/>域名到期未续，域名过期被注销，撒花纪念。</p>
           </el-card>
         </el-timeline-item>
         <el-timeline-item timestamp="2017-01" placement="top">
@@ -100,7 +101,7 @@
 </template>
 
 <script>
-export default {
-  name: 'Me'
-}
+  export default {
+    name: 'Me'
+  }
 </script>

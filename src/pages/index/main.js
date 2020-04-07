@@ -1,11 +1,11 @@
 import Vue from 'vue';
-import store from "@/store";
+import store from "@/pages/index/store";
 import App from './App.vue';
-import router from "@/router";
+import router from "@/pages/index/router";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'element-ui/lib/theme-chalk/display.css';
-import Utils from './common/utils';
+import Utils from '../../common/utils';
 import axios from "axios";
 
 import constant from "@/constants/common"

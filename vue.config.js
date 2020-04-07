@@ -1,8 +1,8 @@
 /* 开发使用 代理 */
 module.exports = {
   devServer: {
-      disableHostCheck: true,
-      proxy: {
+    disableHostCheck: true,
+    proxy: {
           '/article':{
               target: 'http://localhost:10888',
               changeOrigin: true
@@ -28,5 +28,16 @@ module.exports = {
               changeOrigin: true
           }
       }
+  },
+  pages:{
+    index:{
+      entry: 'src/pages/index/main.js',
+      template: 'public/index.html'
+    },
+    admin:{
+      entry: 'src/pages/admin/main.js',
+      template: 'public/index.html',
+      filename: 'admin'
+    }
   }
 };

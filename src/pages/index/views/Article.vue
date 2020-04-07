@@ -10,13 +10,13 @@
   </el-main>
 </template>
 <script>
-import '../../static/github-markdown.css';
+import '../../../../static/github-markdown.css';
 import axios from 'axios';
 import showdown from 'showdown';
-import Markdown from "@/components/Markdown";
-import PageHeader from "@/components/PageHeader";
-import CommentListBox from "@/components/CommentListBox";
-import CommentEditBox from "@/components/CommentEditBox";
+import Markdown from "@/pages/index/components/Markdown";
+import PageHeader from "@/pages/index/components/PageHeader";
+import CommentListBox from "@/pages/index/components/CommentListBox";
+import CommentEditBox from "@/pages/index/components/CommentEditBox";
 
 export default {
   name: 'Article',
@@ -27,7 +27,7 @@ export default {
     CommentEditBox
   },
   props:{
-    id:String
+    id: String
   },
   data(){
     return{

@@ -12,6 +12,7 @@
     "core-js": "^3.6.4",
     "element-ui": "^2.13.0",
     "jquery": "latest",
+    "mavon-editor": "^2.8.3",
     "showdown": "latest",
     "vue": "^2.6.11",
     "vue-router": "latest",
@@ -20,12 +21,13 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-eslint": "~4.2.0",
-    "@vue/cli-service": "~4.2.0",
+    "@vue/cli-plugin-vuex": "^4.3.0",
+    "@vue/cli-service": "^4.2.3",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.1.2",
-    "vue-template-compiler": "^2.6.11",
-    "showdown": "latest"
+    "showdown": "latest",
+    "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,

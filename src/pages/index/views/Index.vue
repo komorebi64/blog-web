@@ -44,10 +44,12 @@
             <el-pagination
                     background
                     v-show="page_show"
+                    @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
                     :page-size="pagination.pageSize"
-                    :current-page="pagination.currentPage"
-                    layout="prev, pager, next"
+                    :current-page.sync="pagination.currentPage"
+                    :page-sizes="[5, 10, 20, 30]"
+                    layout="sizes, prev, pager, next"
                     :total="pagination.total">
             </el-pagination>
         </el-row>
@@ -130,6 +132,10 @@ export default {
       this.pagination.currentPage = currentPage;
       this.findPage();
     },
+    handleSizeChange(pageSize){
+      this.pagination.pageSize = pageSize;
+      this.findPage();
+    },
     // 分页按钮是否显示
     paginationShow(){
         this.page_show = this.pagination.total > this.pagination.pageSize;
@@ -143,7 +149,7 @@ export default {
         // 参数（查询信息）
         name: "article",
         params: {
-          id: articleId
+          id: articleId + ""
         }
       });
     }
@@ -152,7 +158,7 @@ export default {
       if (this.$store.state.paginationQuery !== undefined){
           this.pagination.queryString = this.$store.state.paginationQuery;
       }
-
+      document.title = "Komorebi个人小站";
       this.findPage();
   }
 }
