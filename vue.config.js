@@ -1,8 +1,9 @@
 /* 开发使用 代理 */
 module.exports = {
   devServer: {
+    port: 8888,
     disableHostCheck: true,
-    proxy: {
+    /*proxy: {
           '/article':{
               target: 'http://localhost:10888',
               changeOrigin: true
@@ -27,7 +28,7 @@ module.exports = {
               target: 'http://localhost:10888',
               changeOrigin: true
           }
-      }
+      }*/
   },
   pages:{
     index:{

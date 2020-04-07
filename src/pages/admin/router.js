@@ -22,7 +22,7 @@ export default new Router({
       component: EditMd
     },
     {
-      path: '/admin/home',
+      path: '/admin/',
       name: 'home',
       component: Home
     },

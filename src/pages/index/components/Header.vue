@@ -15,17 +15,17 @@
       </el-submenu>-->
       <el-menu-item index="/me">关于我</el-menu-item>
 
-      <el-menu-item index="/login" style="float: right" v-if="userName === '游客'">
+      <el-menu-item index="/login" style="float: right" v-if="$store.state.userName === ''">
         去登录
       </el-menu-item>
-      <el-menu-item @click="logout" style="float: right" v-if="userName !== '游客'">
+      <el-menu-item @click="logout" style="float: right" v-if="$store.state.userName !== ''">
         登出
       </el-menu-item>
-      <el-menu-item @click="goAdmin" style="float: right" v-if="userName !== '游客'">
+      <el-menu-item @click="goAdmin" style="float: right" v-if="$store.state.userName !== ''">
         后台管理
       </el-menu-item>
 
-      <el-menu-item style="float: right">您好，{{userName}}</el-menu-item>
+      <el-menu-item style="float: right">您好，{{$store.state.userName === '' ? '游客' : $store.state.userName}}</el-menu-item>
 
     </el-menu>
   </el-header>
@@ -34,11 +34,6 @@
   import axios from "axios";
 
   export default {
-    data: function () {
-      return {
-        userName: '游客'
-      }
-    },
     methods: {
       logout() {
         this.$confirm('此操作将退出您的登录状态, 是否继续?', '提示', {
@@ -63,20 +58,12 @@
           });
         });
       },
-      getUserStatus() {
-        axios.get("/auth/userStatus")
-          .then((resp) => {
-            if (resp.data.flag) {
-              this.userName = resp.data.data.userName;
-            }
-          })
-      },
       goAdmin() {
         location.href = '/admin/home'
       }
     },
     mounted() {
-      this.getUserStatus();
+      this.$store.dispatch('getUserStatus');
     }
   }
 </script>

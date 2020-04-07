@@ -9,8 +9,6 @@ export default new Vuex.Store({
   state: {
     userName: "",
     role: ""
-
-
   },
   // 数据改变的唯一方法（处理数据逻辑方法）
   mutations: {
@@ -38,6 +36,5 @@ export default new Vuex.Store({
           location.href = '/'
         })
     }
-
   }
 })

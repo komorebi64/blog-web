@@ -3,7 +3,7 @@
     :default-active="this.$route.path"
     class="el-menu-vertical-demo"
     router>
-    <el-menu-item index="/admin/home">
+    <el-menu-item index="/admin/">
       <i class="el-icon-user"></i>
       <span slot="title">我的主页</span>
     </el-menu-item>
@@ -45,7 +45,7 @@
             this.$message.success({
               message: '登出成功!'
             });
-            location.reload()
+            location.href = "/"
           }).catch(() => {
             this.$message.error({
               message: '登出失败，怎么回事!'

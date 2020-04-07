@@ -71,6 +71,7 @@ export default {
               .then((resp)=>{
                 if (resp.data.flag){
                   this.$notify.success('登录成功');
+                  this.$store.dispatch('getUserStatus');
                   this.$router.push("/")
                 }else {
                   this.$notify.error({
