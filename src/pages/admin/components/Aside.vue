@@ -42,9 +42,6 @@
           center: true
         }).then(() => {
           axios.get("/logout").then(() => {
-            this.$message.success({
-              message: '登出成功!'
-            });
             location.href = "/"
           }).catch(() => {
             this.$message.error({

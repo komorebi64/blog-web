@@ -59,7 +59,7 @@
         });
       },
       goAdmin() {
-        location.href = '/admin/home'
+        location.href = '/admin'
       }
     },
     mounted() {

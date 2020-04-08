@@ -49,5 +49,6 @@
     width: 100%;
     background-color: #f5f6f5;
     text-align: center;
+    border-top: 1px solid #dcdfe6;
   }
 </style>
