@@ -2,6 +2,7 @@ import Vue from 'vue';
 import store from "@/pages/admin/store";
 import Admin from './Admin.vue';
 import router from "@/pages/admin/router";
+import Router from 'vue-router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'element-ui/lib/theme-chalk/display.css';
@@ -22,6 +23,14 @@ new Vue({
   store,
   render: h => h(Admin),
 }).$mount('#app');
+
+/**
+ * 重写路由的push方法 防止两次访问相同路由地址报错
+ */
+const routerPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return routerPush.call(this, location).catch(error=> error)
+}
 
 router.beforeEach((to, from, next) => {
   if (to.matched.length === 0) {                                  //如果未匹配到路由

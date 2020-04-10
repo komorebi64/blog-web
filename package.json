@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "core-js": "^3.6.4",
+    "core-js": "^3.6.5",
     "element-ui": "^2.13.0",
     "jquery": "latest",
     "mavon-editor": "^2.8.3",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-eslint": "~4.2.0",
-    "@vue/cli-plugin-vuex": "^4.3.0",
+    "@vue/cli-plugin-vuex": "^4.3.1",
     "@vue/cli-service": "^4.2.3",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",

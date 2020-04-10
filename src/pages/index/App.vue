@@ -32,13 +32,6 @@ export default {
     this.minHeight = document.documentElement.clientHeight - 180;
     // 监听浏览器窗口变化
     window.onresize = ()=> {this.minHeight = document.documentElement.clientHeight - 180}
-
-    window.screenWidth = document.body.clientWidth;
-
-    let screenWidth = window.screenWidth;
-    if (screenWidth < 700){
-      this.menuStyle.height = 120 + 'px';
-    }
   }
 }
 </script>

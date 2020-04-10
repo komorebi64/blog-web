@@ -6,14 +6,14 @@
     <br/>
     <el-link href="http://www.beian.miit.gov.cn/" type="info" :underline="false" target="_blank">蜀ICP备19014487号
     </el-link>
-    <br />
+<!--    <br />
     <span id="cnzz-a"></span>
     <br />
-    <p id="cnzz-script"></p>
+    <p id="cnzz-script"></p>-->
   </el-footer>
 </template>
 
-<script>
+<!--<script>
   export default {
     name: 'Footer',
     mounted(){
@@ -40,7 +40,7 @@
         }
     }
   }
-</script>
+</script>-->
 
 <style scoped>
   .el-footer {
