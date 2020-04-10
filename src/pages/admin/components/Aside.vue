@@ -30,7 +30,7 @@
   import axios from "axios";
 
   export default {
-    mounted(){
+    mounted() {
       document.title = "后台管理_Komorebi个人小站";
     },
     methods: {

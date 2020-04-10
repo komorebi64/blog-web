@@ -111,13 +111,14 @@
 </script>
 
 <style scoped>
-  .about{
+  .about {
     margin-left: 20px;
     color: #5d686f;
     font-size: 1pc;
     line-height: 1.8;
   }
-  .el-timeline{
+
+  .el-timeline {
     margin-left: -20px;
   }
 </style>

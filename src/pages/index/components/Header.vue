@@ -1,6 +1,6 @@
 <template>
   <el-header>
-    <el-menu  class="menu hidden-sm-and-down" mode="horizontal" router :default-active="$route.path">
+    <el-menu class="menu hidden-sm-and-down" mode="horizontal" router :default-active="$route.path">
       <el-menu-item index="ignore">
                     <span style="font-size: 20px; ">
                     <el-avatar :size="35" src="/image/avatar.jpg"></el-avatar>
@@ -29,7 +29,8 @@
       <el-menu-item index="ignore" @click="goAdmin" style="float: right" v-if="$store.state.userName !== ''">
         后台管理
       </el-menu-item>
-      <el-menu-item index="ignore" style="float: right">您好，{{$store.state.userName === '' ? '游客' : $store.state.userName}}
+      <el-menu-item index="ignore" style="float: right">您好，{{$store.state.userName === '' ? '游客' :
+        $store.state.userName}}
       </el-menu-item>
     </el-menu>
     <el-row class="mobile-menu hidden-md-and-up">
@@ -37,7 +38,7 @@
         <span @click="handleCommand('/')" style="font-size: 20px;">
             Komorebi
         </span>
-        <el-dropdown trigger="click"  @command="handleCommand">
+        <el-dropdown trigger="click" @command="handleCommand">
         <span class="el-dropdown-link">
           更多<i class="el-icon-arrow-down el-icon--right"></i>
         </span>
@@ -87,7 +88,7 @@
       goAdmin() {
         location.href = '/admin'
       },
-      handleCommand(command){
+      handleCommand(command) {
         this.$router.push(command);
       }
     },
@@ -100,23 +101,28 @@
   .el-header {
     padding: 0;
   }
-  .menu{
+
+  .menu {
     padding: 0 110px;
   }
-  .mobile-menu{
+
+  .mobile-menu {
     height: 60px;
     width: 100%;
     border-bottom: 1px solid #dcdfe6;
   }
-  .title-logo{
+
+  .title-logo {
     line-height: 60px;
     margin: auto 20px;
     color: #909399;
   }
-  .more-button{
+
+  .more-button {
     color: #909399;
   }
-  .el-dropdown{
+
+  .el-dropdown {
     float: right;
   }
 </style>
