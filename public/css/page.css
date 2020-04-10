@@ -1,6 +1,7 @@
 body{
     border: 0;
     margin: 0;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 a{
     text-decoration: none;
@@ -48,11 +49,4 @@ pre{
     white-space:-moz-pre-wrap;
     white-space:-o-pre-wrap;
     word-wrap:break-word;
-}
-.about{
-    margin-left: 50px;
-    color: #5d686f;
-    font-size: 1pc;
-    line-height: 1.8;
-    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }

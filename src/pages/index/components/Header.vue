@@ -1,7 +1,7 @@
 <template>
   <el-header>
     <el-menu  class="menu hidden-sm-and-down" mode="horizontal" router :default-active="$route.path">
-      <el-menu-item>
+      <el-menu-item index="ignore">
                     <span style="font-size: 20px; ">
                     <el-avatar :size="35" src="/image/avatar.jpg"></el-avatar>
                         Komorebi
@@ -23,18 +23,18 @@
       <el-menu-item index="/login" style="float: right" v-if="$store.state.userName === ''">
         去登录
       </el-menu-item>
-      <el-menu-item @click="logout" style="float: right" v-if="$store.state.userName !== ''">
+      <el-menu-item index="ignore" @click="logout" style="float: right" v-if="$store.state.userName !== ''">
         登出
       </el-menu-item>
-      <el-menu-item @click="goAdmin" style="float: right" v-if="$store.state.userName !== ''">
+      <el-menu-item index="ignore" @click="goAdmin" style="float: right" v-if="$store.state.userName !== ''">
         后台管理
       </el-menu-item>
-      <el-menu-item style="float: right">您好，{{$store.state.userName === '' ? '游客' : $store.state.userName}}
+      <el-menu-item index="ignore" style="float: right">您好，{{$store.state.userName === '' ? '游客' : $store.state.userName}}
       </el-menu-item>
     </el-menu>
     <el-row class="mobile-menu hidden-md-and-up">
       <el-col :xs="22" :sm="22" class="title-logo">
-        <span style="font-size: 20px;">
+        <span @click="handleCommand('/')" style="font-size: 20px;">
             Komorebi
         </span>
         <el-dropdown trigger="click"  @command="handleCommand">

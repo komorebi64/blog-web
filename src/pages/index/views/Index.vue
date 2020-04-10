@@ -1,7 +1,8 @@
 <template>
-  <el-row :gutter="10">
-    <el-container style="width: 100%;" v-loading="page_loading" element-loading-text="拼命加载中">
-      <el-col :xs="24" :sm="20" :md="20" :lg="20">
+
+    <el-container style="width:100%" v-loading="page_loading" element-loading-text="拼命加载中">
+      <el-row type="flex" class="row-bg" justify="center" style="width:100%">
+      <el-col :xs="24" :sm="16" :md="16" :lg="16">
         <!--当前搜索提示-->
         <transition name="el-zoom-in-top">
           <el-row class="articleOverview" v-show="searchPrompt">
@@ -55,7 +56,7 @@
         </el-row>
       </el-col>
       <!--侧边栏-->
-      <el-col :xs="0" :sm="4" :md="4" :lg="4" style="padding-top: 35px;padding-right: 30px">
+      <el-col :xs="0" :sm="5" :md="6" :lg="4" style="padding-top: 35px;padding-right: 30px">
           <el-input
                   placeholder="搜索文章"
                   prefix-icon="el-icon-search"
@@ -77,8 +78,9 @@
           <el-divider></el-divider>
           <i class="el-icon-share"></i> 社交按钮<el-divider></el-divider>
       </el-col>
+      </el-row>
     </el-container>
-  </el-row>
+
 </template>
 
 <script>
@@ -93,7 +95,7 @@ export default {
       page_show:true,
       pagination: {//分页相关属性
         currentPage: 1,
-        pageSize:3,
+        pageSize:5,
         total:0,
         queryString:'',
       },

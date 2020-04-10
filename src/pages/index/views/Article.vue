@@ -1,13 +1,17 @@
 <template>
-  <el-main v-loading="article_loading" style="width: 100%;">
-    <PageHeader :title="article.title"/>
-    <Markdown :content="article.content"/>
-    <el-card shadow="always" body-style="display: inline-block; width: 95%;">
-      <CommentListBox :articleId="id"/>
-      <el-divider></el-divider>
-      <CommentEditBox :articleId="id"/>
-    </el-card>
-  </el-main>
+  <el-container v-loading="article_loading" class="main">
+    <el-row type="flex" class="row-bg" justify="center">
+      <el-col :xs="24" :sm="18" :md="16" :lg="14">
+        <PageHeader :title="article.title"/>
+        <Markdown :content="article.content"/>
+        <el-card class="comment-box" shadow="always" body-style="display: inline-block;width: 95%;">
+          <CommentListBox :articleId="id"/>
+          <el-divider></el-divider>
+          <CommentEditBox :articleId="id"/>
+        </el-card>
+      </el-col>
+    </el-row>
+  </el-container>
 </template>
 <script>
 import '../../../../static/github-markdown.css';
@@ -85,3 +89,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .main{
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .comment-box{
+
+    margin-bottom: 50px;
+  }
+</style>
