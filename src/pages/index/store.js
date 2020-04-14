@@ -7,8 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   // 自定义共享状态
   state: {
-    userName: '',
-    role: '',
+    userName: undefined,
+    role: undefined,
     // 文章查询条件
     paginationQuery: '',
     currentPage: 1,

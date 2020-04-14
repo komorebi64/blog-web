@@ -20,16 +20,16 @@
         <i class="el-icon-user"></i>关于我
       </el-menu-item>
 
-      <el-menu-item index="/login" style="float: right" v-if="$store.state.userName === ''">
+      <el-menu-item index="/login" style="float: right" v-if="$store.state.userName === undefined">
         去登录
       </el-menu-item>
-      <el-menu-item index="ignore" @click="logout" style="float: right" v-if="$store.state.userName !== ''">
+      <el-menu-item index="ignore" @click="logout" style="float: right" v-if="$store.state.userName !== undefined">
         登出
       </el-menu-item>
-      <el-menu-item index="ignore" @click="goAdmin" style="float: right" v-if="$store.state.userName !== ''">
+      <el-menu-item index="ignore" @click="goAdmin" style="float: right" v-if="$store.state.userName !== undefined">
         后台管理
       </el-menu-item>
-      <el-menu-item index="ignore" style="float: right">您好，{{$store.state.userName === '' ? '游客' :
+      <el-menu-item index="ignore" style="float: right">您好，{{$store.state.userName === undefined ? '游客' :
         $store.state.userName}}
       </el-menu-item>
     </el-menu>
@@ -91,9 +91,6 @@
       handleCommand(command) {
         this.$router.push(command);
       }
-    },
-    mounted() {
-
     }
   }
 </script>
