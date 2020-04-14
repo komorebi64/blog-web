@@ -1,7 +1,6 @@
 <template>
   <el-container v-loading="article_loading" class="main">
-    <el-row type="flex" class="row-bg" justify="center">
-      <el-col :xs="24" :sm="18" :md="16" :lg="14">
+      <el-col :xs="24" :sm="20" :md="18" :lg="16" class="row-bg">
         <PageHeader :title="article.title"/>
         <Markdown :content="article.content"/>
         <el-card class="comment-box" shadow="always" body-style="display: inline-block;width: 95%;">
@@ -10,7 +9,7 @@
           <CommentEditBox :articleId="id"/>
         </el-card>
       </el-col>
-    </el-row>
+
   </el-container>
 </template>
 <script>
@@ -97,7 +96,10 @@
   }
 
   .comment-box {
-
     margin-bottom: 50px;
+  }
+
+  .row-bg {
+    margin: 0 auto;
   }
 </style>

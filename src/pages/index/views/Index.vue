@@ -50,7 +50,7 @@
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
             :page-size="pagination.pageSize"
-            :current-page.sync="pagination.currentPage"
+            :current-page.sync="$store.state.currentPage"
             :page-sizes="[5, 10, 20, 30]"
             layout="sizes, prev, pager, next"
             :total="pagination.total">
@@ -105,7 +105,6 @@
         // 分页按钮显示
         page_show: true,
         pagination: {//分页相关属性
-          currentPage: 1,
           pageSize: 5,
           total: 0,
           queryString: '',
@@ -118,12 +117,12 @@
       //分页查询
       findPage() {
         axios.get("/article" +
-          "?currentPage=" + this.pagination.currentPage +
+          "?currentPage=" + this.$store.state.currentPage +
           "&pageSize=" + this.pagination.pageSize +
           "&queryString=" + this.pagination.queryString)
           .then((resp) => {
-            this.pagination.total = resp.data.data.total;
-            this.articleList = resp.data.data.rows;
+            this.pagination.total = resp.data.size;
+            this.articleList = resp.data.data;
             this.paginationShow();
             this.searchPromptShow();
           })
@@ -142,7 +141,7 @@
       },
       // 切换页码
       handleCurrentChange(currentPage) {
-        this.pagination.currentPage = currentPage;
+        this.$store.commit('setUserRole', currentPage)
         this.findPage();
       },
       handleSizeChange(pageSize) {
@@ -162,7 +161,7 @@
           // 参数（查询信息）
           name: "article",
           params: {
-            id: articleId + ""
+            id: articleId.toString()
           }
         });
       }

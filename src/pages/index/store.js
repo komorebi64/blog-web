@@ -10,8 +10,10 @@ export default new Vuex.Store({
     userName: '',
     role: '',
     // 文章查询条件
-    paginationQuery: ''
-
+    paginationQuery: '',
+    currentPage: 1,
+    // 标签集合
+    tagsList:[]
   },
   // 数据改变的唯一方法（处理数据逻辑方法）
   mutations: {
@@ -21,7 +23,14 @@ export default new Vuex.Store({
     setUserRole(state, data) {
       state.role = data.role;
       state.userName = data.userName;
-    }
+    },
+    setTagsList(state, data){
+      state.tagsList = data;
+    },
+    setCurrentPage(state, data){
+      state.currentPage = data;
+    },
+
   },
   // 可以包含任意异步操作
   actions: {
@@ -30,6 +39,14 @@ export default new Vuex.Store({
         .then(resp => {
           if (resp.data.flag) {
             this.commit('setUserRole', resp.data.data)
+          }
+        })
+    },
+    getTagsList() {
+      axios.get("/tag")
+        .then(resp=>{
+          if (resp.data.flag) {
+            this.commit('setTagsList', resp.data.data)
           }
         })
     }

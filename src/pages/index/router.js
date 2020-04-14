@@ -6,6 +6,7 @@ import Article from "@/pages/index/views/Article";
 import Error from "@/pages/index/components/Error";
 import Login from "@/pages/index/views/Login";
 import Registered from "@/pages/index/views/Registered";
+import Tag from "@/pages/index/views/Tag";
 
 Vue.use(Router);
 
@@ -42,6 +43,17 @@ export default new Router({
       path: '/registered/:csrf',
       name: 'registered',
       component: Registered,
+      props: true
+    },
+    {
+      path: '/tags',
+      name: 'tag',
+      component: Tag
+    },
+    {
+      path: '/tags/:id',
+      name: 'tagParam',
+      component: Tag,
       props: true
     }
   ]

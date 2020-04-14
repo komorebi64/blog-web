@@ -93,7 +93,7 @@
       }
     },
     mounted() {
-      this.$store.dispatch('getUserStatus');
+
     }
   }
 </script>

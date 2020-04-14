@@ -34,6 +34,11 @@
       window.onresize = () => {
         this.minHeight = document.documentElement.clientHeight - 180
       }
+
+      // 获取标签集合
+      this.$store.dispatch('getTagsList');
+      // 获取用户信息
+      this.$store.dispatch('getUserStatus');
     }
   }
 </script>
