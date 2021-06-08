@@ -1,10 +1,10 @@
 <template>
   <el-footer height="130px">
-    ©️2019-2020 Komorebi
-    <el-link href="https://github.com/mantoumc" type="info" :underline="false" target="_blank">by Minghao.Zhang
+    ©️2019-2021 Komorebi
+    <el-link href="https://github.com/komorebi64" type="info" :underline="false" target="_blank">by Minghao.Zhang
     </el-link>
     <br/>
-    <el-link href="http://www.beian.miit.gov.cn/" type="info" :underline="false" target="_blank">蜀ICP备19014487号
+    <el-link href="https://beian.miit.gov.cn/" type="info" :underline="false" target="_blank">蜀ICP备19014487号
     </el-link>
     <br />
     <span id="cnzz-a"></span>
