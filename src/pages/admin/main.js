@@ -3,15 +3,11 @@ import store from "@/pages/admin/store";
 import Admin from './Admin.vue';
 import router from "@/pages/admin/router";
 import Router from 'vue-router'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-import 'element-ui/lib/theme-chalk/display.css';
 import Utils from '../../common/utils';
 import axios from "axios";
 
 import constant from "@/constants/common"
 
-Vue.use(ElementUI);
 Vue.prototype.utils = Utils;
 Vue.prototype.common = constant;
 Vue.config.productionTip = false;

@@ -1,12 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router'
-import Index from "@/pages/index/views/Index";
-import Me from "@/pages/index/views/Me";
-import Article from "@/pages/index/views/Article";
-import Error from "@/pages/index/components/Error";
-import Login from "@/pages/index/views/Login";
-import Registered from "@/pages/index/views/Registered";
-import Tag from "@/pages/index/views/Tag";
 
 Vue.use(Router);
 
@@ -16,44 +9,44 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: Index
+      component: resolve=>require(['@/pages/index/views/Index.vue'],resolve)
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: resolve=>require(['@/pages/index/views/Login.vue'],resolve)
     },
     {
       path: '/me',
-      component: Me
+      component: resolve=>require(['@/pages/index/views/Me.vue'],resolve)
     },
     {
       path: '/article/:id',
       name: 'article',
-      component: Article,
+      component: resolve=>require(['@/pages/index/views/Article.vue'],resolve),
       props: true
     },
     {
       path: '/error/:msg',
       name: 'error',
-      component: Error,
+      component: resolve=>require(['@/pages/index/components/Error.vue'],resolve),
       props: true
     },
     {
       path: '/registered/:csrf',
       name: 'registered',
-      component: Registered,
+      component: resolve=>require(['@/pages/index/views/Registered.vue'],resolve),
       props: true
     },
     {
       path: '/tags',
       name: 'tag',
-      component: Tag
+      component: resolve=>require(['@/pages/index/views/Tag.vue'],resolve)
     },
     {
       path: '/tags/:id',
       name: 'tagParam',
-      component: Tag,
+      component: resolve=>require(['@/pages/index/views/Tag.vue'],resolve),
       props: true
     }
   ]

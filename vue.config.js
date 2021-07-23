@@ -30,6 +30,13 @@ module.exports = {
           }
       }*/
   },
+  chainWebpack(config) {
+    // 移除 preload 插件
+    config.plugins.delete('preload')
+    // 移除 prefetch 插件
+    config.plugins.delete('prefetch')
+    //config.plugins.delete('preload-${name}')//可配置移除预加载的页面。eg:login.html则添加config.plugins.delete('preload-login'),
+  },
   pages:{
     index:{
       entry: 'src/pages/index/main.js',

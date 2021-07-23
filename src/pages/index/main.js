@@ -1,17 +1,47 @@
 import Vue from 'vue';
-import store from "@/pages/index/store";
 import App from './App.vue';
-import router from "@/pages/index/router";
 import Router from 'vue-router'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-import 'element-ui/lib/theme-chalk/display.css';
-import Utils from '../../common/utils';
 import axios from "axios";
 
+import Utils from '@/common/utils';
 import constant from "@/constants/common"
+import router from "@/pages/index/router";
+import store from "@/pages/index/store";
 
-Vue.use(ElementUI);
+
+import { Main, Container, Col, Card, Divider, Row, Breadcrumb, Button, Link, Pagination,
+  Input, Tag, TimelineItem, Tooltip, Collapse, Header, Menu, MenuItem, Dropdown, DropdownMenu,
+  DropdownItem, PageHeader, Footer, Avatar, BreadcrumbItem, Loading, Notification, Timeline} from 'element-ui';
+
+Vue.use(Main);
+Vue.use(Container);
+Vue.use(Col);
+Vue.use(Card);
+Vue.use(Divider);
+Vue.use(Row);
+Vue.use(Breadcrumb);
+Vue.use(Button);
+Vue.use(Link);
+Vue.use(Pagination);
+Vue.use(Input);
+Vue.use(Tag);
+Vue.use(Timeline);
+Vue.use(TimelineItem);
+Vue.use(Tooltip);
+Vue.use(Collapse);
+Vue.use(Header);
+Vue.use(Menu);
+Vue.use(MenuItem);
+Vue.use(Dropdown);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
+Vue.use(PageHeader);
+Vue.use(Footer);
+Vue.use(Avatar);
+Vue.use(BreadcrumbItem);
+Vue.use(Loading.directive);
+Vue.prototype.$loading = Loading.service;
+Vue.prototype.$notify = Notification;
 Vue.prototype.utils = Utils;
 Vue.prototype.common = constant;
 Vue.config.productionTip = false;
