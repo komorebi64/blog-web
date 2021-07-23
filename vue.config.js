@@ -1,5 +1,6 @@
 /* 开发使用 代理 */
 module.exports = {
+  productionSourceMap: false,
   devServer: {
     port: 8888,
     disableHostCheck: true,
