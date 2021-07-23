@@ -39,6 +39,9 @@
       this.$store.dispatch('getTagsList');
       // 获取用户信息
       this.$store.dispatch('getUserStatus');
+
+      document.getElementById('app').style.display = 'block';
+      document.getElementById('appLoading').style.display = 'none';
     }
   }
 </script>
