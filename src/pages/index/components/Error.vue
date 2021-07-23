@@ -1,33 +1,44 @@
 <template>
-    <el-container style="height: 100%; width: 100%;">
-        <div class="windmill">
-            <div class="hills"></div>
-            <div class="wheel">
-                <div class="windwheel"></div>
-                <div class="windwheel windwheel2"></div>
-                <div class="windwheel windwheel3"></div>
-                <div class="windwheel windwheel4"></div>
-            </div>
-            <div class="roof"></div>
-            <div class="mill"></div>
-            <div class="house"></div>
-            <ul class="tree">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <ul class="bush">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <ul class="bush bush2">
-                <li></li>
-                <li></li>
-            </ul>
-            <div class="cloud"></div>
-            <div class="cloud cloud2"></div>
+    <el-container class="body">
+      <div class="my-class">
+        <div class="hint">
+          <h1>{{ msg }}</h1>
         </div>
+        <div class="main">
+          <div class="dog">
+            <div class="dog__paws">
+              <div class="dog__bl-leg leg">
+                <div class="dog__bl-paw paw"></div>
+                <div class="dog__bl-top top"></div>
+              </div>
+              <div class="dog__fl-leg leg">
+                <div class="dog__fl-paw paw"></div>
+                <div class="dog__fl-top top"></div>
+              </div>
+              <div class="dog__fr-leg leg">
+                <div class="dog__fr-paw paw"></div>
+                <div class="dog__fr-top top"></div>
+              </div>
+            </div>
+            <div class="dog__body">
+              <div class="dog__tail"></div>
+            </div>
+            <div class="dog__head">
+              <div class="dog__snout">
+                <div class="dog__nose"></div>
+                <div class="dog__eyes">
+                  <div class="dog__eye-l"></div>
+                  <div class="dog__eye-r"></div>
+                </div>
+              </div>
+            </div>
+            <div class="dog__head-c">
+              <div class="dog__ear-l"></div>
+              <div class="dog__ear-r"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </el-container>
 </template>
 
@@ -37,259 +48,416 @@
             msg:{
                 type: String
             }
-        },
-        mounted(){
-          this.$notify.error({
-            title: '出错啦',
-            message: this.msg
-          });
         }
     }
 </script>
 
 <style scoped>
-    .windmill {
-        position: absolute;
-        left: 45%;
-        top: 40%;
-    }
+.my-class {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+.hint{
+  text-align: center;
+}
+.el-container {
+  display: block;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width: 0;
+}
 
-    .hills {
-        width: 280px;
-        height: 180px;
-        background-color: #edadac;
-        position: absolute;
-        top: 64px;
-        left: -110px;
-        opacity: 0.5;
-        border-radius: 300px 300px 0 0;
-    }
-    .hills:before, .hills:after {
-        content: '';
-        position: absolute;
-        background-color: #edadac;
-        border-radius: 300px 300px 0 0;
-    }
-    .hills:before {
-        width: 250px;
-        height: 110px;
-        bottom: 0;
-        right: -120px;
-    }
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
 
-    .wheel {
-        z-index: 10;
-        width: 192px;
-        height: 192px;
-        position: absolute;
-        left: 8px;
-        top: 10px;
-        animation: spin 15s linear infinite;
-    }
+::-webkit-scrollbar-thumb {
+  background-color: #eee;
+  border-radius: 3px;
+}
 
-    .windwheel {
-        position: absolute;
-        width: 8px;
-        height: 100px;
-        background-color: #41155a;
-        margin-right: 10px;
-        left: 92px;
-    }
-    .windwheel:before {
-        positioN: absolute;
-        content: "";
-        background-color: #41155a;
-        opacity: 0.7;
-        width: 15px;
-        height: 75px;
-        left: 8px;
-    }
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
 
-    .windwheel2 {
-        transform: rotate(90deg);
-        top: 46px;
-        left: 138px;
-        z-index: 40;
-    }
+/* Generic */
+.body {
+  width: 100%;
+  height: 60vh;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+}
 
-    .windwheel3 {
-        transform: rotate(180deg);
-        top: 92px;
-    }
+.main {
+  position: relative;
+  width: 37.5vmax;
+  height: 30.5vmax;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
 
-    .windwheel4 {
-        transform: rotate(-90deg);
-        top: 46px;
-        left: 46px;
-    }
-    .windwheel4:after {
-        position: absolute;
-        content: "";
-        background-color: #41155a;
-        opacity: 0.7;
-        width: 22px;
-        height: 22px;
-        bottom: -7px;
-        left: -7px;
-        transform: rotate(45deg);
-    }
+.leg {
+  position: absolute;
+  bottom: 0;
+  width: 3vmax;
+  height: 4.125vmax;
+}
 
-    .roof {
-        position: absolute;
-        z-index: 9;
-        left: 52px;
-        top: 55px;
-        width: 0;
-        height: 0;
-        border-left: 50px solid transparent;
-        border-right: 50px solid transparent;
-        border-bottom: 70px solid #df615c;
-    }
+.paw {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3.75vmax;
+  height: 1.875vmax;
+  overflow: hidden;
+}
 
-    .mill {
-        position: absolute;
-        left: 52px;
-        top: 124px;
-        width: 100px;
-        height: 120px;
-        background-color: #fff;
-    }
-    .mill:after {
-        position: absolute;
-        content: "";
-        background-color: #41155a;
-        height: 50px;
-        width: 40px;
-        bottom: 0;
-        left: 28px;
-        border-radius: 40% 40% 0 0;
-        border-left: 5px solid #edadac;
-    }
-    .mill:before {
-        position: absolute;
-        content: "";
-        background-color: #41155a;
-        height: 40px;
-        width: 30px;
-        top: 20px;
-        left: 32px;
-        border-radius: 18px;
-        border-left: 5px solid #edadac;
-    }
+.paw::before {
+  content: '';
+  position: absolute;
+  width: 3.75vmax;
+  height: 3.75vmax;
+  border-radius: 50%;
+}
 
-    .house {
-        position: absolute;
-        width: 80px;
-        height: 60px;
-        background-color: #fff;
-        top: 164px;
-        left: 152px;
-        border-top: 20px solid #df615c;
-    }
-    .house:after {
-        content: "";
-        position: absolute;
-        background-color: #41155a;
-        width: 20px;
-        height: 30px;
-        bottom: 0;
-        left: 30px;
-        border-left: 5px solid #edadac;
-    }
+.top {
+  position: absolute;
+  bottom: 0;
+  left: 0.75vmax;
+  height: 4.5vmax;
+  width: 2.625vmax;
+  border-top-left-radius: 1.425vmax;
+  border-top-right-radius: 1.425vmax;
+  transform-origin: bottom right;
+  transform: rotateZ(90deg) translateX(-0.1vmax) translateY(1.5vmax);
+  z-index: -1;
+  background-image: linear-gradient(70deg, transparent 20%, #ff8b56 20%);
+}
 
-    .bush {
-        position: relative;
-        top: 203px;
-        left: -60px;
-    }
+.dog {
+  position: relative;
+  width: 22.5vmax;
+  height: 8.25vmax;
+}
 
-    .bush li {
-        float: left;
-        list-style: none;
-        background-color: #df615c;
-        width: 40px;
-        height: 25px;
-        border-radius: 100px 100px 0 0;
-    }
+.dog::before {
+  content: '';
+  position: absolute;
+  bottom: -0.75vmax;
+  right: -0.15vmax;
+  width: 100%;
+  height: 1.5vmax;
+  background-color: rgba(28, 49, 48, 0.1);
+  border-radius: 50%;
+  z-index: -1000;
+  animation: shadow 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
 
-    .bush2 {
-        top: 178px;
-        left: 160px;
-    }
+.dog__head {
+  position: absolute;
+  left: 1.5vmax;
+  bottom: 0;
+  width: 9.75vmax;
+  height: 8.25vmax;
+  border-top-left-radius: 4.05vmax;
+  border-top-right-radius: 4.05vmax;
+  border-bottom-right-radius: 3.3vmax;
+  border-bottom-left-radius: 3.3vmax;
+  background-color: #FF8147;
+  animation: head 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
 
-    .tree {
-        position: absolute;
-        left: -50px;
-        top: 120px;
-    }
-    .tree li {
-        list-style: none;
-        background-color: #41155a;
-        width: 45px;
-        height: 45px;
-        border-radius: 100%;
-        margin-bottom: -15px;
-    }
-    .tree:after {
-        content: "";
-        position: absolute;
-        background-color: #edadac;
-        width: 3px;
-        height: 80px;
-        top: 25px;
-        right: 21px;
-    }
+.dog__head-c {
+  position: absolute;
+  left: 1.5vmax;
+  bottom: 0;
+  width: 9.75vmax;
+  height: 8.25vmax;
+  animation: head 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+  z-index: -1;
+}
 
-    .cloud {
-        position: absolute;
-        top: 40px;
-        left: -100px;
-        background-color: #fff;
-        height: 20px;
-        width: 40px;
-        z-index: 1000;
-        border-radius: 40px 40px 0 0;
-        opacity: 0.7;
-        animation: clouds 14s linear alternate infinite;
-    }
-    .cloud:before {
-        content: "";
-        position: absolute;
-        background-color: #fff;
-        height: 30px;
-        width: 60px;
-        border-radius: 60px 60px 0 0;
-        bottom: 0;
-        right: 20px;
-    }
+.dog__snout {
+  position: absolute;
+  left: -1.5vmax;
+  bottom: 0;
+  width: 7.5vmax;
+  height: 3.75vmax;
+  border-top-right-radius: 3vmax;
+  border-bottom-right-radius: 3vmax;
+  border-bottom-left-radius: 4.5vmax;
+  background-color: #D7DBD2;
+  animation: snout 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
 
-    .cloud2 {
-        height: 40px;
-        width: 80px;
-        top: -20px;
-        z-index: 1;
-        animation: clouds 24s linear alternate-reverse infinite;
-    }
-    .cloud2:before {
-        content: "页面加载失败啦";
-        position: absolute;
-        background-color: #fff;
-        height: 30px;
-        width: 150px;
-        border-radius: 60px 60px 0 0;
-        bottom: 0;
-        right: 40px;
-    }
+.dog__snout::before {
+  content: '';
+  position: absolute;
+  left: -0.1125vmax;
+  top: -0.15vmax;
+  width: 1.875vmax;
+  height: 1.125vmax;
+  border-top-right-radius: 3vmax;
+  border-bottom-right-radius: 3vmax;
+  border-bottom-left-radius: 4.5vmax;
+  background-color: #1C3130;
+  animation: snout-b 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
 
-    @keyframes spin {
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-    @keyframes clouds {
-        100% {
-            transform: translateX(340px);
-        }
-    }
+.dog__nose {
+  position: absolute;
+  top: -1.95vmax;
+  left: 40%;
+  width: 0.75vmax;
+  height: 2.4vmax;
+  border-radius: 0.525vmax;
+  transform-origin: bottom;
+  transform: rotateZ(10deg);
+  background-color: #D7DBD2;
+}
+
+.dog__eye-l, .dog__eye-r {
+  position: absolute;
+  top: -0.9vmax;
+  width: 0.675vmax;
+  height: 0.375vmax;
+  border-radius: 50%;
+  background-color: #1C3130;
+  animation: eye 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__eye-l {
+  left: 27%;
+}
+
+.dog__eye-r {
+  left: 65%;
+}
+
+.dog__ear-l, .dog__ear-r {
+  position: absolute;
+  width: 10.5vmax;
+  height: 3.375vmax;
+  border-top-left-radius: 0vmax;
+  border-top-right-radius: 0vmax;
+  border-bottom-right-radius: 3.3vmax;
+  border-bottom-left-radius: 3.3vmax;
+  background-color: #E26538;
+}
+
+.dog__ear-l {
+  top: 1.5vmax;
+  left: 6vmax;
+  transform-origin: bottom left;
+  transform: rotateZ(-50deg);
+  z-index: -1;
+  animation: ear-l 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__ear-r {
+  top: 1.5vmax;
+  right: 3vmax;
+  transform-origin: bottom right;
+  transform: rotateZ(20deg);
+  z-index: -2;
+  animation: ear-r 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0.3vmax;
+  left: 3.75vmax;
+  width: 18.75vmax;
+  height: 7.2vmax;
+  border-top-left-radius: 3vmax;
+  border-top-right-radius: 6vmax;
+  border-bottom-right-radius: 1.5vmax;
+  border-bottom-left-radius: 6vmax;
+  background-color: #ff702e;
+  z-index: -2;
+  animation: body 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__tail {
+  position: absolute;
+  right: -3vmax;
+  height: 1.5vmax;
+  width: 4.5vmax;
+  background-color: #E96839;
+  border-radius: 1.5vmax;
+}
+
+.dog__paws {
+  position: absolute;
+  bottom: 0;
+  left: 7.5vmax;
+  width: 12vmax;
+  height: 3vmax;
+}
+
+.dog__bl-leg {
+  left: -3vmax;
+  z-index: -10;
+}
+
+.dog__bl-paw::before {
+  background-color: #bec4b6;
+}
+
+.dog__bl-top {
+  background-image: linear-gradient(80deg, transparent 20%, #E96839 20%);
+}
+
+.dog__fl-leg {
+  z-index: 10;
+}
+
+.dog__fl-leg {
+  left: 0;
+}
+
+.dog__fl-paw::before {
+  background-color: #D7DBD2;
+}
+
+.dog__fr-leg {
+  right: 0;
+}
+
+.dog__fr-paw::before {
+  background-color: #D7DBD2;
+}
+
+/*==============================*/
+@keyframes head {
+  0%, 10%, 20%, 26%, 28%, 90%, 100% {
+    height: 8.25vmax;
+    bottom: 0;
+    transform-origin: bottom right;
+    transform: rotateZ(0);
+  }
+  5%, 15%, 22%, 24%, 30% {
+    height: 8.1vmax;
+  }
+  32%, 50% {
+    height: 8.25vmax;
+  }
+  55%, 60% {
+    bottom: 0.75vmax;
+    transform-origin: bottom right;
+    transform: rotateZ(0);
+  }
+  70%, 80% {
+    bottom: 0.75vmax;
+    transform-origin: bottom right;
+    transform: rotateZ(10deg);
+  }
+}
+@keyframes body {
+  0%, 10%, 20%, 26%, 28%, 32%, 100% {
+    height: 7.2vmax;
+  }
+  5%, 15%, 22%, 24%, 30% {
+    height: 7.05vmax;
+  }
+}
+@keyframes ear-l {
+  0%, 10%, 20%, 26%, 28%, 82%, 100% {
+    transform: rotateZ(-50deg);
+  }
+  5%, 15%, 22%, 24% {
+    transform: rotateZ(-48deg);
+  }
+  30%, 31% {
+    transform: rotateZ(-30deg);
+  }
+  32%, 80% {
+    transform: rotateZ(-60deg);
+  }
+}
+@keyframes ear-r {
+  0%, 10%, 20%, 26%, 28% {
+    transform: rotateZ(20deg);
+  }
+  5%, 15%, 22%, 24% {
+    transform: rotateZ(18deg);
+  }
+  30%, 31% {
+    transform: rotateZ(10deg);
+  }
+  32% {
+    transform: rotateZ(25deg);
+  }
+}
+@keyframes snout {
+  0%, 10%, 20%, 26%, 28%, 82%, 100% {
+    height: 3.75vmax;
+  }
+  5%, 15%, 22%, 24% {
+    height: 3.45vmax;
+  }
+}
+@keyframes snout-b {
+  0%, 10%, 20%, 26%, 28%, 98%, 100% {
+    width: 1.875vmax;
+  }
+  5%, 15%, 22%, 24% {
+    width: 1.8vmax;
+  }
+  34%, 98% {
+    width: 1.275vmax;
+  }
+}
+@keyframes shadow {
+  0%, 10%, 20%, 26%, 28%, 30%, 84%, 100% {
+    width: 99%;
+  }
+  5%, 15%, 22%, 24% {
+    width: 101%;
+  }
+  34%, 81% {
+    width: 96%;
+  }
+}
+@keyframes eye {
+  0%, 30% {
+    width: 0.675vmax;
+    height: 0.3vmax;
+  }
+  32%, 59%, 90%, 100% {
+    width: 0.525vmax;
+    height: 0.525vmax;
+    transform: translateY(0);
+  }
+  60%, 75% {
+    transform: translateY(-0.3vmax);
+  }
+  80%, 85% {
+    transform: translateY(0.15vmax);
+  }
+}
 
 </style>
+
