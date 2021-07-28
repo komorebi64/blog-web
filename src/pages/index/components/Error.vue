@@ -1,82 +1,47 @@
 <template>
-    <el-container class="body">
-      <div class="my-class">
-        <div class="hint">
-          <h1>{{ msg }}</h1>
+  <el-container class="error-container">
+    <div class="dog">
+      <div class="dog__paws">
+        <div class="dog__bl-leg leg">
+          <div class="dog__bl-paw paw"></div>
+          <div class="dog__bl-top top"></div>
         </div>
-        <div class="main">
-          <div class="dog">
-            <div class="dog__paws">
-              <div class="dog__bl-leg leg">
-                <div class="dog__bl-paw paw"></div>
-                <div class="dog__bl-top top"></div>
-              </div>
-              <div class="dog__fl-leg leg">
-                <div class="dog__fl-paw paw"></div>
-                <div class="dog__fl-top top"></div>
-              </div>
-              <div class="dog__fr-leg leg">
-                <div class="dog__fr-paw paw"></div>
-                <div class="dog__fr-top top"></div>
-              </div>
-            </div>
-            <div class="dog__body">
-              <div class="dog__tail"></div>
-            </div>
-            <div class="dog__head">
-              <div class="dog__snout">
-                <div class="dog__nose"></div>
-                <div class="dog__eyes">
-                  <div class="dog__eye-l"></div>
-                  <div class="dog__eye-r"></div>
-                </div>
-              </div>
-            </div>
-            <div class="dog__head-c">
-              <div class="dog__ear-l"></div>
-              <div class="dog__ear-r"></div>
-            </div>
+        <div class="dog__fl-leg leg">
+          <div class="dog__fl-paw paw"></div>
+          <div class="dog__fl-top top"></div>
+        </div>
+        <div class="dog__fr-leg leg">
+          <div class="dog__fr-paw paw"></div>
+          <div class="dog__fr-top top"></div>
+        </div>
+      </div>
+      <div class="dog__body">
+        <div class="dog__tail"></div>
+      </div>
+      <div class="dog__head">
+        <div class="dog__snout">
+          <div class="dog__nose"></div>
+          <div class="dog__eyes">
+            <div class="dog__eye-l"></div>
+            <div class="dog__eye-r"></div>
           </div>
         </div>
       </div>
-    </el-container>
+      <div class="dog__head-c">
+        <div class="dog__ear-l"></div>
+        <div class="dog__ear-r"></div>
+      </div>
+    </div>
+  </el-container>
 </template>
 
-<script>
-    export default {
-        props:{
-            msg:{
-                type: String
-            }
-        }
-    }
-</script>
-
 <style scoped>
-.my-class {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-  transform: translateY(-50%) translateX(-50%);
-}
-.hint{
-  text-align: center;
-}
-.el-container {
-  display: block;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  min-width: 0;
+.error-container {
+    width: 100%;
+    height: calc(100% - 190px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 ::-webkit-scrollbar {
@@ -89,30 +54,13 @@
   border-radius: 3px;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   user-select: none;
-}
-
-/* Generic */
-.body {
-  width: 100%;
-  height: 60vh;
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-}
-
-.main {
-  position: relative;
-  width: 37.5vmax;
-  height: 30.5vmax;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
 }
 
 .leg {
@@ -132,7 +80,7 @@
 }
 
 .paw::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 3.75vmax;
   height: 3.75vmax;
@@ -160,7 +108,7 @@
 }
 
 .dog::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -0.75vmax;
   right: -0.15vmax;
@@ -182,7 +130,7 @@
   border-top-right-radius: 4.05vmax;
   border-bottom-right-radius: 3.3vmax;
   border-bottom-left-radius: 3.3vmax;
-  background-color: #FF8147;
+  background-color: #ff8147;
   animation: head 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
 }
 
@@ -205,12 +153,12 @@
   border-top-right-radius: 3vmax;
   border-bottom-right-radius: 3vmax;
   border-bottom-left-radius: 4.5vmax;
-  background-color: #D7DBD2;
+  background-color: #d7dbd2;
   animation: snout 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
 }
 
 .dog__snout::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -0.1125vmax;
   top: -0.15vmax;
@@ -219,7 +167,7 @@
   border-top-right-radius: 3vmax;
   border-bottom-right-radius: 3vmax;
   border-bottom-left-radius: 4.5vmax;
-  background-color: #1C3130;
+  background-color: #1c3130;
   animation: snout-b 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
 }
 
@@ -232,16 +180,17 @@
   border-radius: 0.525vmax;
   transform-origin: bottom;
   transform: rotateZ(10deg);
-  background-color: #D7DBD2;
+  background-color: #d7dbd2;
 }
 
-.dog__eye-l, .dog__eye-r {
+.dog__eye-l,
+.dog__eye-r {
   position: absolute;
   top: -0.9vmax;
   width: 0.675vmax;
   height: 0.375vmax;
   border-radius: 50%;
-  background-color: #1C3130;
+  background-color: #1c3130;
   animation: eye 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
 }
 
@@ -253,7 +202,8 @@
   left: 65%;
 }
 
-.dog__ear-l, .dog__ear-r {
+.dog__ear-l,
+.dog__ear-r {
   position: absolute;
   width: 10.5vmax;
   height: 3.375vmax;
@@ -261,7 +211,7 @@
   border-top-right-radius: 0vmax;
   border-bottom-right-radius: 3.3vmax;
   border-bottom-left-radius: 3.3vmax;
-  background-color: #E26538;
+  background-color: #e26538;
 }
 
 .dog__ear-l {
@@ -305,7 +255,7 @@
   right: -3vmax;
   height: 1.5vmax;
   width: 4.5vmax;
-  background-color: #E96839;
+  background-color: #e96839;
   border-radius: 1.5vmax;
 }
 
@@ -327,7 +277,7 @@
 }
 
 .dog__bl-top {
-  background-image: linear-gradient(80deg, transparent 20%, #E96839 20%);
+  background-image: linear-gradient(80deg, transparent 20%, #e96839 20%);
 }
 
 .dog__fl-leg {
@@ -339,7 +289,7 @@
 }
 
 .dog__fl-paw::before {
-  background-color: #D7DBD2;
+  background-color: #d7dbd2;
 }
 
 .dog__fr-leg {
@@ -347,64 +297,106 @@
 }
 
 .dog__fr-paw::before {
-  background-color: #D7DBD2;
+  background-color: #d7dbd2;
 }
 
 /*==============================*/
 @keyframes head {
-  0%, 10%, 20%, 26%, 28%, 90%, 100% {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  90%,
+  100% {
     height: 8.25vmax;
     bottom: 0;
     transform-origin: bottom right;
     transform: rotateZ(0);
   }
-  5%, 15%, 22%, 24%, 30% {
+  5%,
+  15%,
+  22%,
+  24%,
+  30% {
     height: 8.1vmax;
   }
-  32%, 50% {
+  32%,
+  50% {
     height: 8.25vmax;
   }
-  55%, 60% {
+  55%,
+  60% {
     bottom: 0.75vmax;
     transform-origin: bottom right;
     transform: rotateZ(0);
   }
-  70%, 80% {
+  70%,
+  80% {
     bottom: 0.75vmax;
     transform-origin: bottom right;
     transform: rotateZ(10deg);
   }
 }
 @keyframes body {
-  0%, 10%, 20%, 26%, 28%, 32%, 100% {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  32%,
+  100% {
     height: 7.2vmax;
   }
-  5%, 15%, 22%, 24%, 30% {
+  5%,
+  15%,
+  22%,
+  24%,
+  30% {
     height: 7.05vmax;
   }
 }
 @keyframes ear-l {
-  0%, 10%, 20%, 26%, 28%, 82%, 100% {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  82%,
+  100% {
     transform: rotateZ(-50deg);
   }
-  5%, 15%, 22%, 24% {
+  5%,
+  15%,
+  22%,
+  24% {
     transform: rotateZ(-48deg);
   }
-  30%, 31% {
+  30%,
+  31% {
     transform: rotateZ(-30deg);
   }
-  32%, 80% {
+  32%,
+  80% {
     transform: rotateZ(-60deg);
   }
 }
 @keyframes ear-r {
-  0%, 10%, 20%, 26%, 28% {
+  0%,
+  10%,
+  20%,
+  26%,
+  28% {
     transform: rotateZ(20deg);
   }
-  5%, 15%, 22%, 24% {
+  5%,
+  15%,
+  22%,
+  24% {
     transform: rotateZ(18deg);
   }
-  30%, 31% {
+  30%,
+  31% {
     transform: rotateZ(10deg);
   }
   32% {
@@ -412,52 +404,87 @@
   }
 }
 @keyframes snout {
-  0%, 10%, 20%, 26%, 28%, 82%, 100% {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  82%,
+  100% {
     height: 3.75vmax;
   }
-  5%, 15%, 22%, 24% {
+  5%,
+  15%,
+  22%,
+  24% {
     height: 3.45vmax;
   }
 }
 @keyframes snout-b {
-  0%, 10%, 20%, 26%, 28%, 98%, 100% {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  98%,
+  100% {
     width: 1.875vmax;
   }
-  5%, 15%, 22%, 24% {
+  5%,
+  15%,
+  22%,
+  24% {
     width: 1.8vmax;
   }
-  34%, 98% {
+  34%,
+  98% {
     width: 1.275vmax;
   }
 }
 @keyframes shadow {
-  0%, 10%, 20%, 26%, 28%, 30%, 84%, 100% {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  30%,
+  84%,
+  100% {
     width: 99%;
   }
-  5%, 15%, 22%, 24% {
+  5%,
+  15%,
+  22%,
+  24% {
     width: 101%;
   }
-  34%, 81% {
+  34%,
+  81% {
     width: 96%;
   }
 }
 @keyframes eye {
-  0%, 30% {
+  0%,
+  30% {
     width: 0.675vmax;
     height: 0.3vmax;
   }
-  32%, 59%, 90%, 100% {
+  32%,
+  59%,
+  90%,
+  100% {
     width: 0.525vmax;
     height: 0.525vmax;
     transform: translateY(0);
   }
-  60%, 75% {
+  60%,
+  75% {
     transform: translateY(-0.3vmax);
   }
-  80%, 85% {
+  80%,
+  85% {
     transform: translateY(0.15vmax);
   }
 }
-
 </style>
 

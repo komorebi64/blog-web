@@ -21,7 +21,6 @@
     data() {
       return {
         minHeight: 0,
-
         menuStyle: {
           height: '60px'
         }
@@ -29,10 +28,10 @@
     },
     mounted() {
       // 动态设置内容高度 让footer始终居底   header+footer的高度是100
-      this.minHeight = document.documentElement.clientHeight - 180;
+      this.minHeight = document.documentElement.clientHeight - 190;
       // 监听浏览器窗口变化
       window.onresize = () => {
-        this.minHeight = document.documentElement.clientHeight - 180
+        this.minHeight = document.documentElement.clientHeight - 190
       }
 
       // 获取标签集合
