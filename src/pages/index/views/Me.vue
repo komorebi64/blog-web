@@ -3,17 +3,14 @@
     <el-row type="flex" class="row-bg" justify="center">
       <el-col :xs="24" :sm="20" :md="18" :lg="16">
         <div class="about">
-          <h1>关于</h1>
-          <h2>Komorebi</h2>
+          <h1>关于 我</h1>
           <p>希望成为一名很优秀的程序员</p>
           <p>用干净的代码，实现每一个功能</p>
-          <h2>关于博主</h2>
           <p>
-            职业：学生<br/>
-            邮箱：komorebi@956246.cn<br/>
-            Tags：善良，不服输<br/>
+            邮箱：komorebi@stackframe.cn<br/>
             简介：喜欢安静,喜欢新鲜的技术,喜欢纯音乐,折腾Ubuntu<br/>
           </p>
+          <h2>喜欢的一句话</h2>
           <p>A programmer who subconsciously views himself as an artist<br/>
             will enjoy what he does and will do it better</p>
         </div>
@@ -71,7 +68,7 @@
             </el-timeline-item>
             <el-timeline-item timestamp="2018-11-12" placement="top">
               <el-card>
-                <p>因 Github Page 加载速度太慢，编写博客不方便，直接删除了 Github 仓库😭</p>
+                <p>因 Github Page 加载速度太慢，编写博客不方便，直接删除了 Github 仓库</p>
               </el-card>
             </el-timeline-item>
             <el-timeline-item timestamp="2018-4-12" placement="top">

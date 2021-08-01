@@ -32,13 +32,21 @@
             </div>
           </el-card>
         </el-row>
-        <!--没有文章-->
-        <el-row class="articleOverview" v-if="articleList.length <= 0">
+        <!--没有搜索到文章-->
+        <el-row class="articleOverview" v-if="articleList.length <= 0 && pagination.queryString !== ''">
           <el-card :body-style="{ padding: '0px' }" shadow="hover">
             <div style="padding: 14px;">
               <h3>很抱歉，没有找到与“{{pagination.queryString}}”相关的文章。</h3>
               <li>请检查您的输入是否正确</li>
               <li>如有任何意见或建议，请及时反馈给我</li>
+            </div>
+          </el-card>
+        </el-row>
+        <!--没有文章-->
+        <el-row class="articleOverview" v-if="articleList.length <= 0">
+          <el-card :body-style="{ padding: '0px' }" shadow="hover">
+            <div style="padding: 14px;">
+              <h3>不会吧不会吧，居然没有文章，这个站长也太懒了把啥也不写</h3>
             </div>
           </el-card>
         </el-row>
